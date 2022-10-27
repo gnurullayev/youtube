@@ -1,0 +1,21 @@
+
+.watch__right-img {
+    width: 200px;
+    height: 94px;
+    object-fit: contain;
+    border: 0 !important;
+}
+
+.next-vide-title {
+    margin-bottom: 1px;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--color-text-white);
+    font-weight: 600;
+}
+
+.card-text1 {
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 500; 
+}
