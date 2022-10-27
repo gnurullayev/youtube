@@ -112,7 +112,6 @@ const fetchingSlice = createSlice({
                 state.nextVideoLoading = true
             })
             .addCase(fetchNextVideo.fulfilled, (state, action) => {
-                console.log(action.payload);
                 state.nextVideos = action.payload;
                 state.nextVideoLoading = false;
             })
