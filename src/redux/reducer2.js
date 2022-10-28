@@ -6,7 +6,10 @@ const initialState = {
     comments: [],
     commentLoading:true,
     searchVideos:[],
-    searchVideosLoading:true
+    searchVideosLoading:true,
+    playlist: [],
+    playlistLoading: true,
+
 }
 
 export const commentsFetching = createAsyncThunk(
@@ -28,6 +31,17 @@ export const searchVideosFetching = createAsyncThunk(
         return res
     }
 ) 
+
+export const playlistFetching = createAsyncThunk(
+    "playlist/playlistFetching",
+    async (value) => {
+        console.log(value);
+        const {request6} = useHttp()
+
+        const res = await request6(value)
+        return res
+    }
+)
 
 const fetchingSlice = createSlice({
     name:"comments",
@@ -55,6 +69,17 @@ const fetchingSlice = createSlice({
             .addCase(searchVideosFetching.rejected, (state) => {
                 state.searchVideosLoading = false
             })
+            .addCase(playlistFetching.pending, (state) => {
+                state.playlistLoading = true
+            })
+            .addCase(playlistFetching.fulfilled, (state, action) => {
+                state.playlistLoading = false
+                state.playlist = action.payload
+            })
+            .addCase(playlistFetching.rejected, (state) => {
+                state.playlistLoading = false
+            })
+            .addDefaultCase((state) => state)
     }
 })
 

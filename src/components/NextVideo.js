@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link} from 'react-router-dom'
-import {fetchNextVideo } from '../redux/reduser'
+import { playlistFetching } from '../redux/reducer2'
+import {fetchChanelDetails, fetchNextVideo, fetchVideoDetails } from '../redux/reduser'
 
 import "./nextVideo.css"
 
@@ -12,10 +13,17 @@ const NextVideo = () => {
     // console.log(nextVideos);
 
     const chanelHandler = (channelId, videoId) => {
+      // console.log("salom");
       dispatch(fetchNextVideo(videoId))
       localStorage.setItem("chanelId", channelId)
     }
 
+    const chanelInfo = (channelId,videoId) => {
+      // dispatch(playlistFetching(channelId))
+      // console.log("salom");
+      localStorage.setItem("chanelId", channelId)
+      dispatch(fetchVideoDetails(videoId))
+    }
   return (
     <>
         {
@@ -25,7 +33,11 @@ const NextVideo = () => {
             :
             (
               nextVideos.map(video => (
-                <Link key={video.id.videoId}  to={`/watch-video/${video.id.videoId}`} onClick = {() => chanelHandler(video.snippet.channelId,video.id.videoId)}>
+                <Link 
+                key={video.id.videoId}  
+                to={`/watch-video/${video.id.videoId}`} 
+                onClick = {() => chanelHandler(video.snippet.channelId,video.id.videoId)}
+                >
                    <li  className="card watch__right-cart mb-3">
                      <div className="row g-0">
                        <div className="col-md-5">
@@ -38,9 +50,14 @@ const NextVideo = () => {
                               {video.snippet.title.slice(0,50)}...
                             </h5>
    
-                           <Link to = {`/chanel/${video.snippet.channelId}`} className="card-text1">
+                          <p onClick={() => chanelInfo(video.snippet.channelId,video.id.videoId)}>
+                          <Link 
+                           to = {`/chanel/${video.snippet.channelId}`} 
+                           className="card-text1"
+                           >
                             {video.snippet.channelTitle}
                            </Link>
+                          </p>
                            <p className="card-text1">
                              <span className="text-muted">
                                 378K views 

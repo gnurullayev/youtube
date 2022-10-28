@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import "./searchVideosPages.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchNextVideo } from '../redux/reduser'
+import { playlistFetching } from '../redux/reducer2'
 
 const SearchVideoPages = () => {
     const [searchTitle, setSearchTitle] = useState(localStorage.getItem("searchVideoTitle"))
@@ -19,6 +20,10 @@ const SearchVideoPages = () => {
     useEffect(() => {
         setSearchTitle(localStorage.getItem("searchVideoTitle"))
     }, [searchVideos])
+
+    const chanelInfo = (playListId) => {
+        dispatch(playlistFetching(playListId))
+      }
 
     console.log(searchVideos);
     
@@ -48,7 +53,7 @@ const SearchVideoPages = () => {
                                                         <div className="col-md-4">
                                                             <img 
                                                             className={`img-fluid ${el.id.playlistId !== undefined ? "" : "search-channel-img"}`} 
-                                                            src={el.snippet.thumbnails.medium.url} 
+                                                            src={el.snippet.thumbnails.high.url} 
                                                             alt={el.snippet.title}
                                                             />
                                                         </div>
@@ -66,7 +71,12 @@ const SearchVideoPages = () => {
                                                                     <small className="ms-2 text-muted text-muted1"> 3 week ago</small>
                                                                 </p>
                                         
-                                                                <Link className='search-channel-title' to={`/chanel/${el.snippet.channelId}`}>
+                                                                <Link 
+                                                                // onClick={() => chanelInfo(el.snippet.playlistId)}
+                                                                className='search-channel-title' to={`/chanel/${el.snippet.channelId}`
+                                                                }
+
+                                                                >
                                                                 {el.snippet.title}
                                                                 </Link>
             

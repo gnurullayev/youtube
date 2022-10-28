@@ -16,14 +16,14 @@
     border-radius: 0 !important;
 } 
 
-.home-card__title {
+.viseoitems-card__title {
     margin-bottom: 5px;
     font-size: var(--fs-sm);
     color: var(--color-text-white);
 }
 
-.home-card__time,
-.home-card__author {
+.viseoitems-card__time,
+.viseoitems-card__author {
     margin-bottom: 3px !important;
     font-size: var(--fs-xs);
     line-height: var(--lh-xs);

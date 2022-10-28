@@ -118,6 +118,7 @@ const fetchingSlice = createSlice({
             .addCase(fetchNextVideo.rejected, (state) => {
                 state.nextVideoLoading = false;
             })
+            .addDefaultCase((state, payload) => {})
             
     }
 

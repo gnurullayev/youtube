@@ -1,0 +1,51 @@
+.subscription-video {
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.subscription-video-border {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    border-bottom: 1px solid var(--color-bg2);
+}
+
+.subscrib-vide-title {
+    margin-bottom: 8px;
+    font-size: var(--fs-md);
+    color: var(--color-text-white);
+}
+
+.subscrib-vide-text1 {
+    margin-bottom: 8px !important;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 500; 
+}
+
+.video-desc {
+    margin-bottom: 20px !important;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-sm);
+    color: var(--color-text-white);
+    font-weight: 400;
+}
+
+.video-link {
+    color: var(--color-text-white);
+    font-size: var(--fs-xs);
+    line-height: var(--lh-md);
+}
+
+.video-watch__text{
+    font-size: var(--fs-sm);
+    line-height: var(--lh-sm);
+    color: var(--color-text-white);
+    font-weight: 400;
+}
+
+.video__watch {
+    width: 100%;
+    max-width: 424px;
+    height: 240px;
+}
+

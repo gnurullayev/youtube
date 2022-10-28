@@ -19,3 +19,9 @@
     line-height: 17px;
     font-weight: 500; 
 }
+
+.img-fluid {
+    width: 100%;
+    max-width: 480px;
+    object-fit: contain;
+}

@@ -8,6 +8,7 @@ import {AiOutlineDislike} from "react-icons/ai"
 import {RiShareForwardLine} from "react-icons/ri"
 import {TfiMoreAlt} from "react-icons/tfi"
 import "./watch.css"
+import Comments from '../components/Comments';
 
 const Watch = () => {
   const [channelId, setCHanelId] = useState(localStorage.getItem("chanelId"))
