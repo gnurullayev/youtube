@@ -16,7 +16,7 @@ const useHttp = () => {
         method: 'GET',
         url: 'https://youtube-v31.p.rapidapi.com/search',
         params: {
-          relatedToVideoId: '7ghhRHRP6t4',
+          relatedToVideoId: 'qt-Y57_UEyo',
           part: 'id,snippet',
           type: 'video',
           maxResults: '50'
